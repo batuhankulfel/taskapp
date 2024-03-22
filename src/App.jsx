@@ -20,8 +20,19 @@ function App() {
     const afterDeleteingTasks = tasks.filter((task) => {
       return task.id !== id;
     });
+
     setTasks(afterDeleteingTasks);
     console.log("Silindi");
+  };
+  const editTaskById = (id, updateTitle, updatedTaskDesc) => {
+    const updatedTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { id, title: updateTitle, taskDesc: updatedTaskDesc };
+      }
+      return task;
+    });
+    setTasks(updatedTasks);
+    console.log("Güncellendi");
   };
   return (
     <div className="App">
@@ -29,7 +40,7 @@ function App() {
       <h1 className="mb-4 mt-10 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
         Görevler
       </h1>
-      <TaskList tasks={tasks} onDelete={deleteTaskId} />
+      <TaskList tasks={tasks} onDelete={deleteTaskId} onUpdate={editTaskById} />
     </div>
   );
 }
