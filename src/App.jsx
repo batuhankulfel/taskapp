@@ -33,7 +33,12 @@ function App() {
     setTasks(afterDeleteingTasks);
     console.log("Silindi");
   };
-  const editTaskById = (id, updateTitle, updatedTaskDesc) => {
+  const editTaskById = async (id, updateTitle, updatedTaskDesc) => {
+    await axios.put(`http://localhost:3000/tasks/${id}`, {
+      title: updateTitle,
+      taskDesc: updatedTaskDesc,
+    });
+
     const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
         return { id, title: updateTitle, taskDesc: updatedTaskDesc };
