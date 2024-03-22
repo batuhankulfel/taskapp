@@ -2,23 +2,23 @@ import { useState } from "react";
 
 function TaskCreate({ onCreate, task, taskFormUpdate, onUpdate }) {
   const [title, setTitle] = useState(task ? task.title : "");
-  const [textDesc, setTextDesc] = useState(task ? task.textDesc : "");
+  const [taskDesc, setTasktDesc] = useState(task ? task.taskDesc : "");
 
   const handleChange = (event) => {
     setTitle(event.target.value);
   };
   const handleTextChange = (event) => {
-    setTextDesc(event.target.value);
+    setTasktDesc(event.target.value);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
     if (taskFormUpdate) {
-      onUpdate(task.id, title, textDesc);
+      onUpdate(task.id, title, taskDesc);
     } else {
-      onCreate(title, textDesc);
+      onCreate(title, taskDesc);
     }
     setTitle("");
-    setTextDesc("");
+    setTasktDesc("");
   };
   return (
     // Burası görevlere güncelleme yapılan yer.
@@ -43,7 +43,7 @@ function TaskCreate({ onCreate, task, taskFormUpdate, onUpdate }) {
               Taskı Düzenleyiniz?
             </label>
             <textarea
-              value={textDesc}
+              value={taskDesc}
               onChange={handleTextChange}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
               rows={5}
@@ -76,7 +76,7 @@ function TaskCreate({ onCreate, task, taskFormUpdate, onUpdate }) {
               Görev Giriniz!
             </label>
             <textarea
-              value={textDesc}
+              value={taskDesc}
               onChange={handleTextChange}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
               rows={5}
