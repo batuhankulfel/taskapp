@@ -13,7 +13,7 @@ function TaskCreate({ onCreate, task, taskFormUpdate, onUpdate }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (taskFormUpdate) {
-      onUpdate(task.id, title, taskDesc);
+      onUpdate(task.id, title, taskDesc); //
     } else {
       onCreate(title, taskDesc);
     }
@@ -60,11 +60,11 @@ function TaskCreate({ onCreate, task, taskFormUpdate, onUpdate }) {
         // Burası görevlerin yazıldığı yer.
 
         <div className="task-create">
-          <h3 className="mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
-            Lütfen Görev Ekleyiniz!
+          <h3 className="mb-4 text-xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl flex">
+            Lütfen Task Ekleyiniz!
           </h3>
           <form className="task-form">
-            <label className="mb-4 mt-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl">
+            <label className="mb-4 mt-6 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-3xl">
               Başlık
             </label>
             <input
@@ -72,7 +72,7 @@ function TaskCreate({ onCreate, task, taskFormUpdate, onUpdate }) {
               onChange={handleChange}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             />
-            <label className="mb-4 mt-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl">
+            <label className="mb-4 mt-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-3xl">
               Görev Giriniz!
             </label>
             <textarea
